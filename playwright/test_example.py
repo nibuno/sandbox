@@ -17,3 +17,9 @@ def test_get_started_link(page: Page):
 
     # Expects page to have a heading with the name of Installation.
     expect(page.get_by_role("heading", name="Installation")).to_be_visible()
+
+def test_has_title_yumihiki_dev(page: Page):
+    """過去に作成したポートフォリオサイトのタイトルが正しいことを確認するテスト"""
+    page.goto("https://www.yumihiki.dev/")
+
+    expect(page).to_have_title(re.compile("Yumihiki"))
