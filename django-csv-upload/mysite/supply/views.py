@@ -18,12 +18,17 @@ class UploadCSVView(View):
         return render(request, self.template_name)
 
     def read_csv_file(self, file):
+        print(type(file))  # <class 'django.core.files.uploadedfile.InMemoryUploadedFile'>
         csv_file_data = file.read().decode('utf-8').splitlines()
+        print(type(csv_file_data))  # <class 'list'>
         reader = csv.DictReader(csv_file_data)
+        print(type(reader))  # <class 'csv.DictReader'>
         return reader
 
     def save_to_db(self, reader):
         for row in reader:
+            print(row)  # dict
+            print(type(row))
             Supply.objects.update_or_create(
                 name=row['名前'],
                 price=row['価格'],
