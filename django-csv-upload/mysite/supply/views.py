@@ -1,5 +1,6 @@
 import csv
 from csv import DictReader
+from io import StringIO
 
 from django.contrib import messages
 from django.core.files.uploadedfile import InMemoryUploadedFile
@@ -44,7 +45,6 @@ class UploadCSVView(View):
 
 
     def chunks_csv(self, file):
-        from io import StringIO
         for chunk in file.chunks():
             # bytesからstrに変換
             decoded_chunk: str = chunk.decode('utf-8')
