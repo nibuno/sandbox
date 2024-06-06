@@ -49,12 +49,27 @@ class UploadCSVView(View):
             # bytesからstrに変換
             decoded_chunk: str = chunk.decode('utf-8')
             reader = csv.DictReader(StringIO(decoded_chunk))
+            reader_list = list(reader)
             # 1回目のループでreaderが空になる
             # これは、readerがイテレータであり、1回目のループで最後まで読み込んでしまうため
+            # 対処法としては、リストに変換することが考えられる
+            # ただし、リストにした場合はreaderが空になるので1回目のreaderも使えなくなる
+            print("1回目のreader")
             for row in reader:
                 print(row)
                 self.save_to_db2(row)
             # 2回目のループはreaderが空なので何もできない
+            print("2回目のreader")
             for row in reader:
+                print(row)
+                self.save_to_db2(row)
+
+            print("1回目のreader_list")
+            for row in reader_list:
+                print(row)  # {'名前': 'ねじ', '価格': '100', '数量': '10'}
+                self.save_to_db2(row)
+
+            print("2回目のreader_list")
+            for row in reader_list:
                 print(row)
                 self.save_to_db2(row)
