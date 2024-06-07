@@ -43,6 +43,17 @@ class UploadCSVView(View):
             quantity=row['数量']
         )
 
+    def save_to_db3(self, row):
+        # 名前自体はまだuniqueなkeyではないがdefaultsを指定したケースとして
+        # 実際に書いてみる
+        Supply.objects.update_or_create(
+            name=row['名前'],
+            defaults={
+                'name': row['名前'],
+                'price': row['価格'],
+                'quantity': row['数量']
+            }
+        )
 
     def chunks_csv(self, file):
         for chunk in file.chunks():
