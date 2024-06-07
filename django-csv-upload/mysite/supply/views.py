@@ -37,6 +37,9 @@ class UploadCSVView(View):
             )
 
     def save_to_db2(self, row):
+        # TODO: このsave_to_db2のケースの発行されるSQLと
+        #       save_to_db3のケースの発行されるSQLを比較してみる
+        #       WHERE句の部分が違うはず？
         Supply.objects.update_or_create(
             name=row['名前'],
             price=row['価格'],
