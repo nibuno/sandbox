@@ -27,6 +27,12 @@ class UploadCSVView(View):
         reader: DictReader = csv.DictReader(csv_file_data)
         return reader
 
+    def read_csv_file_normar_reader(self, file: InMemoryUploadedFile):
+        csv_file_data: list = file.read().decode('utf-8').splitlines()
+        # readerだと、row[0]のように取得する必要がある
+        reader: csv.reader = csv.reader(csv_file_data)
+        return reader
+
     def save_to_db(self, reader):
         for row in reader:
             # rowのtypeはdict
