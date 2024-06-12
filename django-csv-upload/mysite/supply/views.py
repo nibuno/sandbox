@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.shortcuts import render
 from django.views import View
+from .forms import UploadCSVForm
 
 from .models import Supply
 
@@ -14,13 +15,17 @@ class UploadCSVView(View):
     template_name = 'upload_csv.html'
 
     def get(self, request):
-        return render(request, self.template_name)
+        form = UploadCSVForm()
+        return render(request, self.template_name, {'form': form})
 
     def post(self, request):
-        csv_file = request.FILES['csv_file']
-        self.chunks_csv(csv_file)
-        messages.success(request, 'CSV upload successful!')
-        return render(request, self.template_name)
+        form = UploadCSVForm(request.POST, request.FILES)
+        if form.is_valid():
+            csv_file = request.FILES['csv_file']
+            self.chunks_csv(csv_file)
+            messages.success(request, 'CSV upload successful!')
+            render(request, self.template_name, {'form': form})
+        return render(request, self.template_name, {'form': form})
 
     def read_csv_file(self, file: InMemoryUploadedFile):
         csv_file_data: list = file.read().decode('utf-8').splitlines()

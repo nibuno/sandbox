@@ -4,9 +4,16 @@
     <title>Upload CSV</title>
 </head>
 <body>
-    <h1>Upload CSV</h1>
+    <h2>Upload CSV</h2>
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+    {% if form.non_field_errors %}
+        {{ form.non_field_errors }}
+    {% endif %}
     <form method="post" enctype="multipart/form-data">
-        <input type="file" name="csv_file">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Upload</button>
