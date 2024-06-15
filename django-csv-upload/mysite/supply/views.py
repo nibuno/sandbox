@@ -13,13 +13,13 @@ from .models import Supply
 
 class UploadCSVView(View):
     template_name = 'upload_csv.html'
+    form = UploadCSVForm
 
     def get(self, request):
-        form = UploadCSVForm()
-        return render(request, self.template_name, {'form': form})
+        return render(request, self.template_name, {'form': self.form})
 
     def post(self, request):
-        form = UploadCSVForm(request.POST, request.FILES)
+        form = self.form(request.POST, request.FILES)
         if form.is_valid():
             csv_file = request.FILES['csv_file']
             self.chunks_csv(csv_file)
