@@ -98,3 +98,9 @@ class UploadCSVView(View):
             for row in reader_list:
                 print(row)
                 self.save_to_db2(row)
+            # 以下のようにすることもできる
+            # この場合、outputはcloseすべき
+            # reader = csv.DictReader(StringIO(decoded_chunk)) の場合はしなくても良いのかな・・・？
+            # output = StringIO(decoded_chunk)
+            # reader = csv.DictReader(output)
+            # output.close()
