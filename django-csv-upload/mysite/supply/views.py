@@ -63,7 +63,6 @@ class UploadCSVView(View):
         Supply.objects.update_or_create(
             name=row['名前'],
             defaults={
-                'name': row['名前'],
                 'price': row['価格'],
                 'quantity': row['数量']
             }
