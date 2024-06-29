@@ -69,6 +69,12 @@ class UploadCSVView(View):
         )
 
     def chunks_csv(self, file):
+        # ファイルのチャンクを返すジェネレータです。
+        # multiple_chunks() が True の場合、 read() の代わりにこのメソッドをループで使用すべきです。
+        # 実際には、常に chunks() を使用するのが最も簡単です。
+        # read() を使用する代わりに chunks() をループ処理することで、大きなファイルがシステムのメモリを圧迫しないようにできます。
+        # https://docs.djangoproject.com/ja/5.0/ref/files/uploads/#django.core.files.uploadedfile.UploadedFile.chunks
+        # との説明がある
         for chunk in file.chunks():
             # bytesからstrに変換
             decoded_chunk: str = chunk.decode('utf-8')
