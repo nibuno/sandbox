@@ -1,6 +1,8 @@
 from typing import Iterable
 
-def love_messages(messages: Iterable) -> None:
+# IterableでもOK
+# Iterable[str]でもOK
+def love_messages(messages: Iterable[str]) -> None:
     for message in messages:
         print(f"I love you {message}")
 
