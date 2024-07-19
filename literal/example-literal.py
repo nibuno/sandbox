@@ -17,6 +17,9 @@ type Mode = Literal['r', 'rb', 'w', 'wb']
 
 # mypy1.10.1で対応するための書き方その2
 # TypeAliasでもOK
+# NOTE: ただし、Python3.12では非推奨になっており
+# type文が推奨されている様子
+# https://docs.python.org/ja/3/library/typing.html#typing.TypeAlias
 # Mode: TypeAlias = Literal['r', 'rb', 'w', 'wb']
 def open_helper(file: str, mode: Mode) -> str:
     return "True"
