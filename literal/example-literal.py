@@ -26,3 +26,27 @@ def open_helper(file: str, mode: Mode) -> str:
 
 open_helper('/some/path', 'r')      # Passes type check
 open_helper('/other/path', 'typo')  # Error in type checker
+
+# Literalには以下の値が定義できる
+# * 文字列
+# * 数値
+# * bool
+# * None
+# * Enum
+# * その他のリテラル型
+
+Literal['r', 'rb', 'w', 'wb']
+Literal[1, 2, 3]
+Literal[True, False]
+Literal[None]
+
+from enum import Enum
+class COLOR(Enum):
+    RED = "red"
+    GREEN = "green"
+    BLUE = "blue"
+
+Literal[COLOR.RED, COLOR.GREEN, COLOR.BLUE]
+
+# floatは使えない
+Literal[1.0, 2.0, 3.0]
