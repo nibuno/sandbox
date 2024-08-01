@@ -12,3 +12,10 @@ S = TypeVar("S", bound=str)
 
 # Must be exactly str or bytes とのこと
 A = TypeVar("A", str, bytes)
+
+# TypeVarは、Python3.5から追加されているみたい
+# 型変数はtype checkers(例えばmypy)などの恩恵を受けることができる
+# https://docs.python.org/3.5/library/typing.html#typing.TypeVar
+# 関連するPEPはこの辺りの様子
+# https://peps.python.org/pep-0484/
+# https://peps.python.org/pep-0695/
