@@ -1,4 +1,4 @@
-from typing import TypeVar
+from typing import TypeVar, Sequence
 
 # リファレンス
 # https://docs.python.org/ja/3/library/typing.html#typing.TypeVar
@@ -19,3 +19,10 @@ A = TypeVar("A", str, bytes)
 # 関連するPEPはこの辺りの様子
 # https://peps.python.org/pep-0484/
 # https://peps.python.org/pep-0695/
+
+def repeat[T](x: T, n: int) -> Sequence[T]:
+    """Return a list containing n references to x.
+
+    xへのn個の参照を含むリストを返す
+    """
+    return [x] * n
