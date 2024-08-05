@@ -26,3 +26,11 @@ def repeat[T](x: T, n: int) -> Sequence[T]:
     xへのn個の参照を含むリストを返す
     """
     return [x] * n
+
+def print_capitalized[S: str](x: S) -> S:
+    """Print x capitalized, and return x.
+
+    xを大文字にして表示し、xを返す
+    """
+    print(x.capitalize())
+    return x
