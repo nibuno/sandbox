@@ -30,7 +30,7 @@ from grade import grade
 import pytest
 
 @pytest.mark.parametrize('score,expected', [
-    pytest.param(50, "不可", id="param-50-Poor", marks=pytest.mark.basic),  # marksを付与すると is this a typo? とWarningが出る
+    pytest.param(50, "不可", id="param-50-Poor", marks=pytest.mark.basic),
     pytest.param(59, "不可", id="param-59-Poor"),
     pytest.param(60, "可", id="param-60-Average"),
     pytest.param(69, "可", id="param-69-Average"),
