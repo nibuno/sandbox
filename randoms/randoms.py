@@ -32,3 +32,9 @@ random.choice(seq=[1, 2, 3, 4, 5])
 # populationから重複ありでk個選び、リストで返す
 # weightsで重みを指定でき、同じ番号の要素に対してより「出やすく」できる
 random.choices(population=[1, 2, 3, 4, 5], weights=[10, 1, 1, 1, 1], cum_weights=None, k=3)
+
+# random.sample
+# シーケンスxをインプレースにシャッフル
+_x = [1, 2, 3, 4, 5]
+random.shuffle(x=_x)
+# _x が [3, 1, 5, 2, 4] などになる
