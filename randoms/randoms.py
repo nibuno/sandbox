@@ -20,3 +20,14 @@ for i in range(10):
     1.1611989419760143
     -1.2113131691520214
     """
+
+# シーケンス用の関数
+# https://docs.python.org/ja/3/library/random.html#functions-for-sequences
+
+# random.choice
+# seqからランダムに1つ選択
+random.choice(seq=[1, 2, 3, 4, 5])
+
+# random.choices
+# populationから重複ありでk個選び、リストで返す
+random.choices(population=[1, 2, 3, 4, 5], weights=None, cum_weights=None, k=3)
