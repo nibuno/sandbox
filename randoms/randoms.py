@@ -39,3 +39,7 @@ _x = [1, 2, 3, 4, 5]
 random.shuffle(x=_x)
 # _x が [3, 1, 5, 2, 4] などになる
 # リストで返したい場合は、random.sampleを使う
+
+# random.sample
+# populationから重複なしでk個選び、リストで返す
+random.sample(population=[1, 2, 3, 4, 5], k=2)
