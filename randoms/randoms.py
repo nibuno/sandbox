@@ -43,3 +43,6 @@ random.shuffle(x=_x)
 # random.sample
 # populationから重複なしでk個選び、リストで返す
 random.sample(population=[1, 2, 3, 4, 5], k=2)
+
+# populationの中身を増やさずにcountsで重複する数も指定できる
+random.sample(population=[1, 2], k=2, counts=[5, 5])
