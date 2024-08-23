@@ -53,3 +53,8 @@ random.randrange(10, step=1)
 
 # 0, 2, 4, 8までのランダムな整数を返す(2ずつ9までの数値を返す)
 random.randrange(0, 10, 2)
+
+# randint
+# 1から10までのランダムな整数を返す(10も含む)
+# a <= N <= b となる randrange(a, b+1) と同じ
+random.randint(1, 10)
