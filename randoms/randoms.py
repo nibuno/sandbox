@@ -47,6 +47,7 @@ random.sample(population=[1, 2, 3, 4, 5], k=2)
 # populationの中身を増やさずにcountsで重複する数も指定できる
 random.sample(population=[1, 2], k=2, counts=[5, 5])
 
+# 整数用の関数
 # randrange
 # 0から9までのランダムな整数を返す(10は含まない)
 random.randrange(10, step=1)
