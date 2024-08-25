@@ -2,7 +2,7 @@ import json
 
 from pathlib import Path
 
-def load_survey_data(file_path):
+def load_survey_data(file_path: Path) -> dict:
     with open(file_path, "r", encoding="utf-8") as file:
         data = json.load(file)
     return data
