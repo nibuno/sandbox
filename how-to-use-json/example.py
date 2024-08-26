@@ -32,3 +32,8 @@ pprint.pprint(survey_data)
 
 # dictになる
 print(type(survey_data))
+
+# dumpsを使えばpprintを使わずみやすくできる
+# ensure_ascii=Falseを指定することで日本語を表示できる
+# (正確にはASCII文字以外をエスケープせずにそのまま表示する？)
+print(json.dumps(survey_data, indent=4, ensure_ascii=False))
