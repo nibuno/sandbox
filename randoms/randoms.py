@@ -59,3 +59,9 @@ random.randrange(0, 10, 2)
 # 1から10までのランダムな整数を返す(10も含む)
 # a <= N <= b となる randrange(a, b+1) と同じ
 random.randint(1, 10)
+
+# binomialvariate
+# 離散分布？
+n = 10
+p = 0.5
+sum(random.random() < p for i in range(n))
