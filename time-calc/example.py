@@ -18,3 +18,10 @@ delta = timedelta(
     weeks=7
 )
 delta  # datetime.timedelta(days=50, seconds=21902, microseconds=4003)
+
+# 加算する
+# e.g. datetime.datetime(2024, 10, 14, 22, 19, 15, 871221)
+today = datetime.today()
+# e.g. datetime.datetime(2024, 10, 15, 22, 19, 15, 871221)
+# 1日`だけ`加算されている
+tomorrow = today + timedelta(days=1)
